@@ -36,7 +36,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         } else{
             //kalau auth gagal
-            return redirect('sesi')->withErrors('username dan password yang anda masukan tidak sesuai');
+            return redirect('')->withErrors('username dan password yang anda masukan tidak sesuai');
         }
 
         

@@ -56,6 +56,14 @@
                                                         placeholder="Masukkan email" name="email" required>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label for="role">Level:</label>
+                                                    <select name="role" id="role" class="form-control">
+                                                        <option value="admin">Admin</option>
+                                                        <option value="operator">Operator</option>
+                                                        <option value="user">User</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="password">Password:</label>
                                                     <input type="password" class="form-control" id="password"
                                                         placeholder="Masukkan password" name="password" required>
@@ -84,8 +92,9 @@
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>NO</th>
                                             <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Level</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -97,6 +106,9 @@
                                                 </th>
                                                 <th>
                                                     {{ $item->email }}
+                                                </th>
+                                                <th>
+                                                    {{ $item->role }}
                                                 </th>
                                                 <th>
                                                     <div class="btn-group">
@@ -164,6 +176,21 @@
                                                                                     placeholder="Masukkan email"
                                                                                     name="email" required
                                                                                     value="{{ $item->email }}">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="role">Level:</label>
+                                                                                <select name="role" id="role"
+                                                                                    class="form-control">
+                                                                                    <option value="admin"
+                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
+                                                                                        Admin</option>
+                                                                                    <option value="operator"
+                                                                                        {{ $item->role == 'operator' ? 'selected' : '' }}>
+                                                                                        Operator</option>
+                                                                                    <option value="user"
+                                                                                        {{ $item->role == 'user' ? 'selected' : '' }}>
+                                                                                        User</option>
+                                                                                </select>
                                                                             </div>
                                                                             <button type="submit"
                                                                                 class="btn btn-primary">Submit</button>

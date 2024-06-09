@@ -40,6 +40,7 @@ class UserController extends Controller
             $data = [
                 'name'=>$request->input("name"),
                 'email'=>$request->input("email"),
+                'role'=>$request->input("role"),
                 'password'=>Hash::make($request->input("password"))
             ];
     
@@ -74,6 +75,7 @@ class UserController extends Controller
         $data = [
             'name'=>$request->input("name"),
             'email'=>$request->input("email"),
+            'role'=>$request->input("role"),
         ];
     
         User::where('id',$id)->update($data);
