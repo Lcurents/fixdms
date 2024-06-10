@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -12,7 +13,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        $data = User::get();
+        return view('Pages.kategori',compact('data'));
     }
 
     /**
