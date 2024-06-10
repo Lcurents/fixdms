@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataEntryController;
+use App\Http\Controllers\KpiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,6 @@ route::delete('/user/{id}',[UserController::class,'destroy'])->name('user.delete
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::get('/dataentry',[DataEntryController::class,'index'])->name('data')->middleware('auth');
+
+Route::get('/kpi',[KpiController::class,'index'])->name('data')->middleware('auth');
 });

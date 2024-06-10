@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kpi;
-use App\Models\User;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
-class KpiController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = User::get();
-        return view('Pages.kpi',compact('data'));
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class KpiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kpi $kpi)
+    public function show(Kategori $kategori)
     {
         //
     }
@@ -44,7 +42,7 @@ class KpiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kpi $kpi)
+    public function edit(Kategori $kategori)
     {
         //
     }
@@ -52,7 +50,7 @@ class KpiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kpi $kpi)
+    public function update(Request $request, Kategori $kategori)
     {
         //
     }
@@ -60,7 +58,7 @@ class KpiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kpi $kpi)
+    public function destroy(Kategori $kategori)
     {
         //
     }

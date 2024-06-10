@@ -6,13 +6,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data KPI</h1>
+                    <h1 class="m-0">Data Kategori</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Data KPI</li>
+                        <li class="breadcrumb-item active">Data Kategori</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -29,7 +29,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data KPI</h3>
+                                <h3 class="card-title">Data Kategori</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -38,7 +38,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama_KPI</th>
+                                            <th>Nama_Kategori</th>
                                             <th>Department</th>
                                         </tr>
                                     </thead>
