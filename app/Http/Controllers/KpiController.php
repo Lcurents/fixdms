@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataEntry;
-use App\Models\User;
+use App\Models\Kpi;
 use Illuminate\Http\Request;
 
-class DataEntryController extends Controller
+class KpiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = User::get();
-        return view('Pages.entry',compact('data'));
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class DataEntryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DataEntry $dataEntry)
+    public function show(Kpi $kpi)
     {
         //
     }
@@ -44,7 +42,7 @@ class DataEntryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DataEntry $dataEntry)
+    public function edit(Kpi $kpi)
     {
         //
     }
@@ -52,7 +50,7 @@ class DataEntryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DataEntry $dataEntry)
+    public function update(Request $request, Kpi $kpi)
     {
         //
     }
@@ -60,7 +58,7 @@ class DataEntryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DataEntry $dataEntry)
+    public function destroy(Kpi $kpi)
     {
         //
     }
