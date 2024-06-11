@@ -6,13 +6,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data KPI</h1>
+                    <h1 class="m-0">Data Plant</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Data KPI</li>
+                        <li class="breadcrumb-item active">Data Plant</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -30,7 +30,7 @@
                         <div class="container">
                             <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                Tambah KPI
+                                Tambah Plant
                             </button>
                             <br><br>
                             <!-- The Modal -->
@@ -40,7 +40,7 @@
 
                                         <!-- Modal Header -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Tambah Data KPI</h4>
+                                            <h4 class="modal-title">Tambah Data Plant</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
 
@@ -64,24 +64,12 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                            <form action="{{ route('kpi.post') }}" method="post">
+                                            <form action="{{ route('plant.post') }}" method="post">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <label for="kpi">Nama KPI:</label>
-                                                    <input type="text" class="form-control" id="kpi"
-                                                        placeholder="Masukkan nama" name="kpi" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="department">Department:</label>
-                                                    <select name="department" id="department" class="form-control">
-                                                        <option value="purchasing">Purchasing</option>
-                                                        <option value="scm">SCM</option>
-                                                        <option value="production">Production</option>
-                                                        <option value="engineering">Engineering</option>
-                                                        <option value="qc">QC</option>
-                                                        <option value="hrga">HRGA</option>
-                                                        <option value="finance">Finance</option>
-                                                    </select>
+                                                    <label for="plant">Nama Plant:</label>
+                                                    <input type="text" class="form-control" id="plant"
+                                                        placeholder="Masukkan nama" name="plant" required>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </form>
@@ -99,7 +87,7 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data KPI</h3>
+                                <h3 class="card-title">Data Plant</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -108,8 +96,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama_KPI</th>
-                                            <th>Department</th>
+                                            <th>Nama_Plant</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -120,14 +107,11 @@
                                                     {{ $item->id }}
                                                 </th>
                                                 <th>
-                                                    {{ $item->nama_kpi }}
-                                                </th>
-                                                <th>
-                                                    {{ $item->department }}
+                                                    {{ $item->nama_plant }}
                                                 </th>
                                                 <th>
                                                     <div class="btn-group">
-                                                        <form action="{{ route('kpi.delete', ['id' => $item->id]) }}"
+                                                        <form action="{{ route('plant.delete', ['id' => $item->id]) }}"
                                                             method="POST"
                                                             onsubmit="return confirm('yakin ingin menghapus data ini')">
                                                             @csrf
@@ -146,7 +130,7 @@
 
                                                                     <!-- Modal Header -->
                                                                     <div class="modal-header">
-                                                                        <h4 class="modal-title">Edit Data KPI</h4>
+                                                                        <h4 class="modal-title">Edit Data Plant</h4>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal">&times;</button>
                                                                     </div>
@@ -172,47 +156,17 @@
                                                                             </div>
                                                                         @endif
                                                                         <form
-                                                                            action="{{ route('kpi.update', ['id' => $item->id]) }}"
+                                                                            action="{{ route('plant.update', ['id' => $item->id]) }}"
                                                                             method="POST">
                                                                             @csrf
                                                                             @method('put')
                                                                             <div class="form-group">
-                                                                                <label for="kpi">Nama KPI:</label>
+                                                                                <label for="plant">Nama Plant:</label>
                                                                                 <input type="text" class="form-control"
-                                                                                    id="kpi"
+                                                                                    id="plant"
                                                                                     placeholder="Masukkan nama"
-                                                                                    name="kpi" required>
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="department">Department:</label>
-                                                                                <select name="department" id="department"
-                                                                                    class="form-control">
-                                                                                    <option value="purchasing"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        Purchasing
-                                                                                    </option>
-                                                                                    <option value="scm"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        SCM</option>
-                                                                                    <option value="production"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        Production
-                                                                                    </option>
-                                                                                    <option value="engineering"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        Engineering
-                                                                                    </option>
-                                                                                    <option value="qc"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        QC</option>
-                                                                                    <option value="hrga"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        HRGA</option>
-                                                                                    <option value="finance"
-                                                                                        {{ $item->role == 'admin' ? 'selected' : '' }}>
-                                                                                        Finance
-                                                                                    </option>
-                                                                                </select>
+                                                                                    name="plant" required
+                                                                                    value="{{ $item->nama_plant }}">
                                                                             </div>
                                                                             <button type="submit"
                                                                                 class="btn btn-primary">Submit</button>

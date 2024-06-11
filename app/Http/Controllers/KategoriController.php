@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -13,8 +12,13 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $data = User::get();
-        return view('Pages.kategori',compact('data'));
+        return view('Pages.kategori');
+    }
+
+    public function kategori()
+    {
+        $data = Kategori::get();
+        return view('Pages.kategori', compact('data'));
     }
 
     /**
@@ -30,7 +34,14 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'nama_kategori' => $request->input("kategori"),
+            'department' => $request->input("department"),
+
+        ];
+
+        Kategori::create($data);
+        return redirect()->route('kategori')->with('suuccess', 'berhasil menambahkan data');
     }
 
     /**
@@ -52,16 +63,24 @@ class KategoriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, Kategori $kategori, $id)
     {
-        //
+        $data = [
+            'nama_kategori' => $request->input("kategori"),
+            'department' => $request->input("department"),
+
+        ];
+
+        Kategori::where('id', $id)->update($data);
+        return redirect()->route('kategori')->with('suuccess', 'berhasil update data');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kategori $kategori)
+    public function destroy(Request $request, string $id)
     {
-        //
+        Kategori::where('id', $id)->delete();
+        return redirect()->route('kategori')->with('suuccess', 'berhasil delete data');
     }
 }

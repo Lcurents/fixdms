@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kpi extends Model
+class plant extends Model
 {
     use HasFactory;
-    protected $table = 'kpi';
+    protected $table = 'plant';
     protected $fillable = [
-        'nama_kpi',
+        'nama_plant',
         'department',
     ];
 }

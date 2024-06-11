@@ -156,6 +156,36 @@
                             </button>
                         </form>
                     </li>
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('kpi') }}" class="d-flex align-items-center">
+                            @csrf
+                            <button type="submit" class="nav-link d-flex align-items-center"
+                                style="border: none; background: none; padding-left: 10; cursor: pointer;">
+                                <i class="nav-icon fas fa-copy"></i>
+                                KPI
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('kategori') }}" class="d-flex align-items-center">
+                            @csrf
+                            <button type="submit" class="nav-link d-flex align-items-center"
+                                style="border: none; background: none; padding-left: 10; cursor: pointer;">
+                                <i class="nav-icon fas fa-copy"></i>
+                                Kategori
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('plant') }}" class="d-flex align-items-center">
+                            @csrf
+                            <button type="submit" class="nav-link d-flex align-items-center"
+                                style="border: none; background: none; padding-left: 10; cursor: pointer;">
+                                <i class="nav-icon fas fa-copy"></i>
+                                Plant
+                            </button>
+                        </form>
+                    </li>
 
                 </ul>
             </nav>

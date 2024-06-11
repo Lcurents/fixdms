@@ -13,8 +13,13 @@ class KpiController extends Controller
      */
     public function index()
     {
-        $data = User::get();
-        return view('Pages.kpi',compact('data'));
+
+    }
+
+    public function kpi()
+    {
+        $data = Kpi::get();
+        return view('Pages.kpi', compact('data'));
     }
 
     /**
@@ -30,7 +35,14 @@ class KpiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'nama_kpi' => $request->input("kpi"),
+            'department' => $request->input("department"),
+
+        ];
+
+        Kpi::create($data);
+        return redirect()->route('kpi')->with('suuccess', 'berhasil menambahkan data');
     }
 
     /**
@@ -52,16 +64,24 @@ class KpiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kpi $kpi)
+    public function update(Request $request, Kpi $kpi, $id)
     {
-        //
+        $data = [
+            'nama_kpi' => $request->input("kpi"),
+            'department' => $request->input("department"),
+
+        ];
+
+        Kpi::where('id', $id)->update($data);
+        return redirect()->route('kpi')->with('suuccess', 'berhasil update data');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kpi $kpi)
+    public function destroy(Kpi $kpi, $id)
     {
-        //
+        Kpi::where('id', $id)->delete();
+        return redirect()->route('kpi')->with('suuccess', 'berhasil delete data');
     }
 }

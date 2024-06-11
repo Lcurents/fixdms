@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataEntry;
+use App\Models\plant;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,17 @@ class DataEntryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $data = User::get();
-        return view('Pages.entry',compact('data'));
-    }
+{
+    // Ambil data nama_plant dari tabel Plant
+    $plants = plant::all('nama_plant');
+    
+    // Ambil data dari tabel User
+    $data = User::get();
+    
+    // Gabungkan data plants dan data menjadi satu array
+    return view('Pages.entry', compact('plants', 'data'));
+}
+
 
     /**
      * Show the form for creating a new resource.
